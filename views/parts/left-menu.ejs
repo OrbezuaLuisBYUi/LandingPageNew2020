@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <!--documents-->
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
+            <ul class="list-group panel">
+                <li class="list-group-item"><i class="glyphicon glyphicon-align-justify"></i> <b>SIDE PANEL</b></li>
+                <li class="list-group-item"><input type="text" onkeyup="search(this.value)" autocomplete="false" class="form-control search-query" placeholder="Search Something"></li>
+                <li class="list-group-item"><a href="/Dashboard"><i class="glyphicon glyphicon-home"></i>Dashboard </a></li>
+                <li class="list-group-item"><a href="/LandingPage"><i class="glyphicon glyphicon-th-list"></i>Landing page </a></li>
+                <li class="list-group-item"><a href="/Subscribers"><i class="fa fa-users"></i>Subscribers </a></li>
+                <li class="list-group-item"><a href="/UserInformation"><i class="glyphicon glyphicon-list-alt"></i>User information</a></li>
+                <li class="list-group-item"><a href="/Users"><i class="fa fa-user"></i>Users </a></li>
+              </ul>
+          </div>
+      </div>
+    </div>
+
+    <script>
+      function search(searching)
+      {
+          if(windowsSearch == "USERS")
+          {
+              var route = "/Showinfousers";
+              var idwindow = "informationusers";
+          }
+          else
+          if(windowsSearch == "SUBSCRIBERS")
+          {
+              var route = "/showinfosubscribers";
+              var idwindow = "informationsubscribers";
+          }
+          else
+          if(windowsSearch == "LANDINGPAGE")
+          {
+              var route = "/showinfo";
+              var idwindow = "informationlandingpage";
+          }
+          
+          fetch(buildUrl(route, { searching: searching}), {method: 'GET'})
+          .then(res => res.json())
+          .then(data => {
+              
+              const id = $('#'+idwindow);
+              var j = 0;
+              id.empty();
+              for(var i = 0; i <= data.length; i++)
+              {
+                  j++;
+                  if(windowsSearch == "USERS")
+                  {
+                      var profile = "";
+                      if(data[i].profile == 1){ profile = "Administrator"; }else{ profile = "Customer"; }
+                      id.append("<tr id='getinfo"+data[i].keyuse+"'><td>"+j+"</td><td>"+data[i].username+"</td><td>"+data[i].myname+"</td><td>"+data[i].lastname+"</td><td>"+data[i].phone+"</td><td>"+data[i].email+"</td><td>"+profile+"</td><td><a class='glyphicon glyphicon-edit cursorpointer' data-toggle='modal' data-target='#modaledituser' title='Edit' onclick=edituser('"+data[i].keyuse+"')></a></td><td><a class='glyphicon glyphicon-trash cursorpointer' onclick=deleteuser('"+data[i].keyuse+"') title='Delete'></a></td></tr>");
+                  }
+                  else
+                  if(windowsSearch == "SUBSCRIBERS")
+                  {
+                      id.append("<tr id='getinfo"+data[i].keycus+"'><td>"+j+"</td><td>"+data[i].yourname+"</td><td>"+data[i].email+"</td><td>"+data[i].yourtext+"</td><td>"+data[i].phone+"</td><td>"+data[i].nameuser+"</td><td>"+data[i].keylan+"</td><td><a class='glyphicon glyphicon-edit cursorpointer' data-toggle='modal' data-target='#modaleditsubscriber' title='Edit' onclick=editsubscriber('"+data[i].keycus+"')></a></td><td><a class='glyphicon glyphicon-trash cursorpointer' onclick=deletesubscriber('"+data[i].keycus+"') title='Delete'></a></td></tr>");
+                  }
+                  else
+                  if(windowsSearch == "LANDINGPAGE")
+                  {
+                      id.append("<tr id='getinfo"+data[i].keylan+"'><td>"+j+"</td><td>"+data[i].tittle+"</td><td>"+data[i].subtittle+"</td><td><img src='images/landingpage/"+data[i].image+"' class='picture'><input type='hidden' id='editimage"+data[i].keylan+"' value='"+data[i].image+"'></td><td><iframe width='160' height='115' src='"+data[i].video+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><input type='hidden' id='editvideo"+data[i].keylan+"' value='"+data[i].video+"'></td><td>"+data[i].textlan+"</td><td>"+data[i].namelan+"</td><td>"+data[i].email+"</td><td>"+data[i].swtext+"</td><td>"+data[i].swphone+"</td><td><a class='glyphicon glyphicon-edit cursorpointer' data-toggle='modal' data-target='#modaleditlandingpage' title='Edit' onclick=editlandingpage('"+data[i].keylan+"')></a></td><td><a class='glyphicon glyphicon-trash cursorpointer' onclick=deletelandingpage('"+data[i].keylan+"') title='Delete'></a></td><td><a class='glyphicon glyphicon-link cursorpointer' href='https://landingpageluis.herokuapp.com/template/"+data[i].keylan+"' title='Link' target='_blank'></a></td></tr>");
+                  }
+              }
+          });
+      }
+
+      function buildUrl(url, parameters) {
+        let qs = "";
+        for (const key in parameters) {
+            if (parameters.hasOwnProperty(key)) {
+                const value = parameters[key];
+                qs +=
+                    encodeURIComponent(key) + "=" + encodeURIComponent(value) + "&";
+            }
+        }
+        if (qs.length > 0) {
+            qs = qs.substring(0, qs.length - 1); //chop off last "&"
+            url = url + "?" + qs;
+        }
+        return url;
+    }
+  </script>

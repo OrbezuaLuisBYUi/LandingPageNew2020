@@ -1,0 +1,406 @@
+
+<div class="container-fluid">
+    <!--documents-->
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9 content">
+            <div class="panel panel-default">
+            <div class="panel-body">
+                
+                <div class="content-row">
+                    <div class="left75">
+                        <h2 class="content-row-title">/Landing Page</h2>
+                    </div>
+                    <div class="left25">
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalcreatelandingpage">New Landing page</button>
+                    </div>
+                    <br><br><br><br>
+                    <div class="row">
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Tittle</th>
+                                <th>Subtittle</th>
+                                <th>Image</th>
+                                <th>Video</th>
+                                <th>Text</th>
+                                <th>Sw name</th>
+                                <th>Sw email</th>
+                                <th>Sw text</th>
+                                <th>Sw phone</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="informationlandingpage">
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        
+                    </div>
+                </div>
+                
+            </div><!-- panel body -->
+            </div>
+        </div><!-- content -->
+    </div>
+</div>
+
+
+<!-- Modal to new Landing Page -->
+<div class="modal fade" id="modalcreatelandingpage" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">NEW LANDING PAGE</h4>
+                <button type="button" class="close" data-dismiss="modal">Go to Landing page</button>
+            </div>
+            <div class="modal-body">
+                <div id="tittle">
+                    *Tittle:<br>
+                    <input name="newtittle" id="newtittle" type="text" class="form-control" placeholder="Tittle">
+                </div>
+                <div id="subtittle">
+                    *Subtittle:<br>
+                    <input name="newsubtittle" id="newsubtittle" type="text" class="form-control" placeholder="Subtittle">
+                </div>
+                <div id="image">
+                    Image:<br>
+                    <input name="newimage" id="newimage" type="file" class="form-control" placeholder="Image">
+                </div>
+                <div id="video">
+                    Video Youtube:<br>
+                    <input name="newvideo" id="newvideo" type="text" class="form-control" placeholder="Video">
+                </div>
+                <div id="phone">
+                    Text:<br>
+                    <input name="newtext" id="newtext" type="text" class="form-control" placeholder="Text">
+                </div>
+                <div id="attachment">
+                    Attachment:<br>
+                    <input name="newattachment" id="newattachment" type="file" class="form-control" placeholder="Attachment">
+                </div>
+                <div id="videoyoutube">
+                    Video Email Youtube:<br>
+                    <input name="newvideoyoutube" id="newvideoyoutube" type="text" class="form-control" placeholder="Video Youtube">
+                </div>
+                <div id="swname">
+                    <div class="left-tittle">*Sw name:</div>
+                    <div class="left-input"><input name="newswname" id="newswname" type="checkbox" class="form-control" checked></div>
+                </div>
+                <div id="swemail">
+                    <div class="left-tittle">*Sw email:</div>
+                    <div class="left-input"><input name="newswemail" id="newswemail" type="checkbox" class="form-control" checked></div>
+                </div>
+                <div id="swtext">
+                    <div class="left-tittle">Sw text:</div>
+                    <div class="left-input"><input name="newswtext" id="newswtext" type="checkbox" class="form-control"></div>
+                </div>
+                <div id="swphone">
+                    <div class="left-tittle">Sw phone:</div>
+                    <div class="left-input"><input name="newswphone" id="newswphone" type="checkbox" class="form-control"></div>
+                </div>
+                <button type="button" id="newlandingpage" class="btn btn-primary btn-block button-margin">NEW LANDING PAGE</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Edit Landing Page -->
+<div class="modal fade" id="modaleditlandingpage" role="dialog">
+    <div class="modal-dialog">
+        <input type="hidden" id="editkeylanhidden" value="" >
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">EDIT LANDING PAGE</h4>
+                <button type="button" class="close" data-dismiss="modal">Go to Landing page</button>
+            </div>
+            <div class="modal-body">
+                <div id="tittle">
+                    *Tittle:<br>
+                    <input name="edittittle" id="edittittle" type="text" class="form-control" placeholder="Tittle">
+                </div>
+                <div id="subtittle">
+                    *Subtittle:<br>
+                    <input name="editsubtittle" id="editsubtittle" type="text" class="form-control" placeholder="Subtittle">
+                </div>
+                <div id="image">
+                    Image:<br>
+                    <input name="editimage" id="editimage" type="file" class="form-control" placeholder="Image">
+                </div>
+                <div id="video">
+                    Video:<br>
+                    <input name="editvideo" id="editvideo" type="text" class="form-control" placeholder="Video">
+                </div>
+                <div id="phone">
+                    Text:<br>
+                    <input name="edittext" id="edittext" type="text" class="form-control" placeholder="Text">
+                </div>
+                <div id="attachment">
+                    Attachment:<br>
+                    <input name="editattachment" id="editattachment" type="file" class="form-control" placeholder="Attachment">
+                </div>
+                <div id="videoyoutube">
+                    Video Email Youtube:<br>
+                    <input name="editvideoyoutube" id="editvideoyoutube" type="text" class="form-control" placeholder="Video Youtube">
+                </div>
+                <div id="swname">
+                    <div class="left-tittle">*Sw name:</div>
+                    <div class="left-input"><input name="editswname" id="editswname" type="checkbox" class="form-control" checked></div>
+                </div>
+                <div id="swemail">
+                    <div class="left-tittle">*Sw email:</div>
+                    <div class="left-input"><input name="editswemail" id="editswemail" type="checkbox" class="form-control" checked></div>
+                </div>
+                <div id="swtext">
+                    <div class="left-tittle">Sw text:</div>
+                    <div class="left-input"><input name="editswtext" id="editswtext" type="checkbox" class="form-control"></div>
+                </div>
+                <div id="swphone">
+                    <div class="left-tittle">Sw phone:</div>
+                    <div class="left-input"><input name="editswphone" id="editswphone" type="checkbox" class="form-control"></div>
+                </div>
+                <button type="button" id="editlandingpage" class="btn btn-primary btn-block button-margin">EDIT LANDING PAGE</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    load_landingpage();
+
+    //NEW LANDINGPAGE
+    const btnlandingpage = document.querySelector('#newlandingpage');
+
+    btnlandingpage.addEventListener('click', () => {
+        //Validate data
+        var newtittle = document.querySelector('#newtittle').value;
+        var newsubtittle = document.querySelector('#newsubtittle').value;
+        var newimage = document.querySelector('#newimage').value;
+        var newtext = document.querySelector('#newtext').value;
+        var newvideo = document.querySelector('#newvideo').value;
+        var newattachment = document.querySelector('#newattachment').value;
+        var newvideoyoutube = document.querySelector('#newvideoyoutube').value;
+
+        if( $('#newswname').prop('checked') ) { newswname = 1; }else{ newswname = 0; }
+        if( $('#newswemail').prop('checked') ) { newswemail = 1; }else{ newswemail = 0; }
+        if( $('#newswtext').prop('checked') ) { newswtext = 1; }else{ newswtext = 0; }
+        if( $('#newswphone').prop('checked') ) { newswphone = 1; }else{ newswphone = 0; }
+        
+        //AJAX
+        if(newtittle.trim() == "" || newsubtittle.trim() == "")
+        {
+            alert("Enter the tittle and subtittle");
+            return false;
+        }
+        else
+        if(newimage.trim() == "" && newtext.trim() == "" && newvideo.trim() == "")
+        {
+            alert("Enter the image or the video or text");
+            return false;
+        }
+        else
+        if(newswname == 0 || newswemail == 0)
+        {
+            alert("Enter the email and name");
+            return false;
+        }
+        else
+        {
+            const fileInput = document.querySelector('#newimage');
+            const fileInputOwner = document.querySelector('#newattachment');
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('file', fileInputOwner.files[0]);
+            formData.append('newtittle', newtittle);
+            formData.append('newsubtittle', newsubtittle);
+            formData.append('newtext', newtext);
+            formData.append('newvideo', newvideo);
+            formData.append('newswname', newswname);
+            formData.append('newswemail', newswemail);
+            formData.append('newswtext', newswtext);
+            formData.append('newswphone', newswphone);
+            formData.append('newvideoyoutube', newvideoyoutube);
+
+            const options =  { 
+                method: 'POST', 
+                body: formData
+                //JSON.stringify({ newtittle:newtittle,newsubtittle:newsubtittle,newvideo:newvideo,newtext:newtext,newswname:newswname,newswemail:newswemail,newswtext:newswtext,newswphone:newswphone })
+            };
+
+            fetch('/CreateLandingPage', options)
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+                load_landingpage();
+            });
+        }
+    })
+    //END CREATE LANDINGPAGE
+
+    //EDIT LANDINGPAGE
+    const btneditlandingpage = document.querySelector('#editlandingpage');
+
+    btneditlandingpage.addEventListener('click', () => {
+        //Validate data
+        
+        var editkeylan = document.querySelector('#editkeylanhidden').value;
+        var edittittle = document.querySelector('#edittittle').value;
+        var editsubtittle = document.querySelector('#editsubtittle').value;
+        var editimage = document.querySelector('#editimage').value;
+        var edittext = document.querySelector('#edittext').value;
+        var editvideo = document.querySelector('#editvideo').value;
+        var editvideoyoutube = document.querySelector('#editvideoyoutube').value;
+        var editswname = 0;
+        var editswemail = 0;
+        var editswtext = 0;
+        var editswphone = 0;
+
+        if( $('#editswname').prop('checked') ) { editswname = 1; }else{ editswname = 0; }
+        if( $('#editswemail').prop('checked') ) { editswemail = 1; }else{ editswemail = 0; }
+        if( $('#editswtext').prop('checked') ) { editswtext = 1; }else{ editswtext = 0; }
+        if( $('#editswphone').prop('checked') ) { editswphone = 1; }else{ editswphone = 0; }
+        
+        //AJAX
+        if(edittittle.trim() == "" || editsubtittle.trim() == "")
+        {
+            alert("Enter the tittle and subtittle");
+            return false;
+        }
+        else
+        if(editimage.trim() == "" && edittext.trim() == "" && editvideo.trim() == "")
+        {
+            alert("Enter the image or the video or text");
+            return false;
+        }
+        else
+        if(editswname == 0 || editswemail == 0)
+        {
+            alert("Enter the email and name");
+            return false;
+        }
+        else
+        {
+            const fileInput = document.querySelector('#editimage');
+            const fileInputOwner = document.querySelector('#editattachment');
+            const imageold = document.querySelector('#editimage'+editkeylan).value;
+            const imageoldAttachment = document.querySelector('#editimageattachment'+editkeylan).value;
+           alert(imageoldAttachment);
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('file', fileInputOwner.files[0]);
+            formData.append('edittittle', edittittle);
+            formData.append('editsubtittle', editsubtittle);
+            formData.append('edittext', edittext);
+            formData.append('editimage', imageold);
+            formData.append('editimageattachment', imageoldAttachment);
+            formData.append('editvideo', editvideo);
+            formData.append('editswname', editswname);
+            formData.append('editswemail', editswemail);
+            formData.append('editswtext', editswtext);
+            formData.append('editswphone', editswphone);
+            formData.append('editkeylan', editkeylan);
+            formData.append('editvideoyoutube', editvideoyoutube);
+
+            fetch('/UpdateLandingPage', { 
+                method: 'POST', 
+                body: formData//JSON.stringify({ editkeylan:editkeylan,edittittle:edittittle,editsubtittle:editsubtittle,editvideo:editvideo,edittext:edittext,editswname:editswname,editswemail:editswemail,editswtext:editswtext,editswphone:editswphone })
+            })
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+                load_landingpage();
+            });
+        }
+    })
+    //END EDIT LANDINGPAGE
+
+    function load_landingpage()
+    {
+        fetch('/showinfo', {method: 'GET'})
+        .then(res => res.json())
+        .then(data => {
+            const landingpages = $('#informationlandingpage');
+            var j = 0;
+            landingpages.empty();
+            for(var i = 0; i <= data.length; i++)
+            {
+                j++;
+                landingpages.append("<tr id='getinfo"+data[i].keylan+"'><td>"+j+"</td><td>"+data[i].tittle+"</td><td>"+data[i].subtittle+"</td><td><img src='images/landingpage/"+data[i].image+"' class='picture'><input type='hidden' id='editimage"+data[i].keylan+"' value='"+data[i].image+"'><input type='hidden' id='editimageattachment"+data[i].keylan+"' value='"+data[i].imageattachment+"'><input type='hidden' id='editvideoowner"+data[i].keylan+"' value='"+data[i].videoowner+"'></td><td><iframe width='160' height='115' src='"+data[i].video+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><input type='hidden' id='editvideo"+data[i].keylan+"' value='"+data[i].video+"'></td><td>"+data[i].textlan+"</td><td>"+data[i].namelan+"</td><td>"+data[i].email+"</td><td>"+data[i].swtext+"</td><td>"+data[i].swphone+"</td><td><a class='glyphicon glyphicon-edit cursorpointer' data-toggle='modal' data-target='#modaleditlandingpage' title='Edit' onclick=editlandingpage('"+data[i].keylan+"')></a></td><td><a class='glyphicon glyphicon-trash cursorpointer' onclick=deletelandingpage('"+data[i].keylan+"') title='Delete'></a></td><td><a class='glyphicon glyphicon-link cursorpointer' href='https://landingpageluis.herokuapp.com/template/"+data[i].keylan+"' title='Link' target='_blank'></a></td></tr>");
+            }
+        });
+    }
+
+    function editlandingpage(keylan)
+    {
+        var tittle = $('#getinfo'+keylan).find("td:eq(1)").text();
+        var subtittle = $('#getinfo'+keylan).find("td:eq(2)").text();
+        var image = document.querySelector('#editimage'+keylan).value;
+        var imageAttachment = document.querySelector('#editimageattachment'+keylan).value;
+        var editvideoowner = document.querySelector('#editvideoowner'+keylan).value;
+        var video = document.querySelector('#editvideo'+keylan).value;
+        var text = $('#getinfo'+keylan).find("td:eq(5)").text();
+        var swname = $('#getinfo'+keylan).find("td:eq(6)").text();
+        var swemail = $('#getinfo'+keylan).find("td:eq(7)").text();
+        var swtext = $('#getinfo'+keylan).find("td:eq(8)").text();
+        var swphone = $('#getinfo'+keylan).find("td:eq(9)").text();
+
+        $('#editkeylanhidden').val(keylan);
+        $('#edittittle').val(tittle);
+        $('#editsubtittle').val(subtittle);
+        $('#editvideo').val(video);
+        $('#edittext').val(text);
+        $('#editvideoyoutube').val(editvideoowner);
+
+        if(swname == 1){ $( "#editswname" ).prop( "checked", true ); }
+        if(swemail == 1){ $( "#editswemail" ).prop( "checked", true ); }
+        if(swtext == 1){ $( "#editswtext" ).prop( "checked", true ); }
+        if(swphone == 1){ $( "#editswphone" ).prop( "checked", true ); }
+    }
+
+    function deletelandingpage(keylan)
+    {
+        if(confirm("Are you sure you want to delete"))
+        {
+            fetch('/DeleteLandingPage', { 
+                method: 'DELETE', 
+                headers: { 'content-Type': 'application/json' },
+                body: JSON.stringify({ keylan:keylan })
+            })
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+                load_landingpage();
+            });
+        }
+        else
+        {
+            alert("Operation was cancell");
+        }
+    }
+</script>

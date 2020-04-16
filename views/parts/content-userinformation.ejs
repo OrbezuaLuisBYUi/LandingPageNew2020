@@ -1,0 +1,84 @@
+
+<div class="container-fluid">
+    <!--documents-->
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9 content">
+            <div class="panel panel-default">
+            <div class="panel-body">
+                
+                <div class="content-row">
+                    <div class="left75">
+                        <h2 class="content-row-title">/User Information</h2>
+                    </div>
+                    <div class="left25">
+                        
+                    </div>
+                    <br><br><br><br>
+                    <div class="row">
+                        <div id="User">
+                            *User:<br>
+                            <input type="text" value="<%= use_username %>" class="form-control" readonly>
+                        </div>
+                        <div id="Name">
+                            *Name:<br>
+                            <input name="editname" id="editname" value="<%= use_name %>" type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div id="lastname">
+                            *LastName:<br>
+                            <input name="editlastname" id="editlastname" value="<%= use_lastname %>" type="text" class="form-control" placeholder="Lastname">
+                        </div>
+                        <div id="Phone">
+                            *Phone:<br>
+                            <input name="editphone" id="editphone" value="<%= use_phone %>" type="text" class="form-control" placeholder="Phone">
+                        </div>
+                        <div id="email">
+                            *Email:<br>
+                            <input name="editemail" id="editemail" value="<%= use_email %>" type="text" class="form-control" placeholder="Email">
+                        </div>
+                        <div id="User">
+                            *Profile:<br>
+                            <input type="text" value="<%= use_profile %>" class="form-control" readonly>
+                        </div>
+                        <button type="button" id="btnedituser" class="btn btn-primary btn-block button-margin">EDIT USER</button>
+                    </div>
+                </div>
+                
+            </div><!-- panel body -->
+            </div>
+        </div><!-- content -->
+    </div>
+</div>
+
+<script>
+    //EDIT USER
+    const btnedituser = document.querySelector('#btnedituser');
+
+    btnedituser.addEventListener('click', () => {
+        //Validate data
+        
+        var editname = document.querySelector('#editname').value;
+        var editlastname = document.querySelector('#editlastname').value;
+        var editphone = document.querySelector('#editphone').value;
+        var editemail = document.querySelector('#editemail').value;
+
+        //AJAX
+        if(editname.trim() == "" || editlastname.trim() == "" || editphone.trim() == "" || editemail.trim() == "")
+        {
+            alert("Plase enter your personal information");
+            return false;
+        }
+        else
+        {
+            fetch('/UpdateUserInformation', { 
+                method: 'POST', 
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ editname:editname,editlastname:editlastname,editphone:editphone,editemail:editemail })
+            })
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+            });
+        }
+    })
+    //END EDIT USER
+</script>

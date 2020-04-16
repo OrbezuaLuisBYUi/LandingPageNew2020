@@ -1,0 +1,42 @@
+.margin{
+    margin: 50px;
+}
+.cursorpointer{
+    cursor: pointer;
+}
+.underline{
+    text-decoration: underline;
+}
+.align-left{
+    float: left;
+    margin: 10px;
+}
+.left75{
+    float: left;
+    width: 75%;
+}
+.left25{
+    float: left;
+    width: 25%;
+}
+.left-input{
+    float: left;
+    width: 10%;
+}
+.left-tittle{
+    float: left;
+    width: 11%;
+    padding-top: 10px;
+}
+.button-margin{
+    margin-top: 60px;
+}
+.picture{
+    width: 150px;
+}
+.paddingbottom{
+    padding-bottom: 100px;
+}
+.displaynone{
+    display: none;
+}

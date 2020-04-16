@@ -1,0 +1,176 @@
+
+<div class="container-fluid">
+    <!--documents-->
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9 content">
+            <div class="panel panel-default">
+            <div class="panel-body">
+                
+                <div class="content-row">
+                    <h2 class="content-row-title">/Dashboard</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pricing align-left">
+                                <ul>
+                                    <li class="unit price-primary">
+                                        <div class="price-title">
+                                            <h3><%= amount_landingpage %></h3>
+                                            <p>Current landing page</p>
+                                        </div>
+                                        
+                                        <div class="price-foot">
+                                            <button type="button" class="btn btn-primary" onclick="showdashboard('landingpage')">See information</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pricing align-left">
+                                <ul>
+                                    <li class="unit price-primary">
+                                        <div class="price-title">
+                                            <h3><%= amount_subscribers %></h3>
+                                            <p>Current subscribers</p>
+                                        </div>
+                                        
+                                        <div class="price-foot">
+                                            <button type="button" class="btn btn-primary" onclick="showdashboard('subscribers')">See information</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pricing align-left">
+                                <ul>
+                                    <li class="unit price-primary">
+                                        <div class="price-title">
+                                            <h3><%= name %></h3>
+                                            <p>Email: <%= email %></p>
+                                        </div>
+                                        
+                                        <div class="price-foot">
+                                            <button type="button" class="btn btn-primary" onclick="edituserdashboard()" data-toggle="modal" data-target="#modaledituserdashboard">Edit information</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        
+                        <div>
+                            <table id="landingpage" class="table table-striped displaynone">
+                                <thead>
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Tittle</th>
+                                    <th>Subtittle</th>
+                                    <th>Image</th>
+                                    <th>Video</th>
+                                    <th>Text</th>
+                                    <th>Sw name</th>
+                                    <th>Sw email</th>
+                                    <th>Sw text</th>
+                                    <th>Sw phone</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody id="informationlandingpage">
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                              <table id="subscribers" class="table table-striped displaynone">
+                                <thead>
+                                  <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Phone</th>
+                                    <th>Owner template</th>
+                                    <th>Template</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="informationsubscribers">
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div><!-- panel body -->
+            </div>
+        </div><!-- content -->
+    </div>
+</div>
+<!-- Modal to edit User -->
+<div class="modal fade" id="modaledituserdashboard" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">EDIT USER</h4>
+                <button type="button" class="close" data-dismiss="modal">Go to Users</button>
+            </div>
+            <div class="modal-body">
+                <div id="username">
+                    *Username:<br>
+                    <input name="editusername" id="editusername" type="text" class="form-control" placeholder="Username">
+                </div>
+                <div id="password">
+                    *Password:<br>
+                    <input name="editpassword" id="editpassword" type="password" class="form-control" placeholder="Password">
+                </div>
+                <div id="name">
+                    *Name:<br>
+                    <input name="editname" id="editname" type="text" class="form-control" placeholder="Name">
+                </div>
+                <div id="video">
+                    LastName:<br>
+                    <input name="editlastname" id="editlastname" type="text" class="form-control" placeholder="LastName">
+                </div>
+                <div id="phone">
+                    Phone:<br>
+                    <input name="editphone" id="editphone" type="text" class="form-control" placeholder="Phone">
+                </div>
+                <div id="email">
+                    *Email:<br>
+                    <input name="editemail" id="editemail" type="text" class="form-control" placeholder="Email">
+                </div>
+                <div id="profile">
+                    *Profile:<br>
+                    <select class="form-control" name="editprofile" id="editprofile">
+                        <option value="">-Select Profile-</option>
+                        <option value="1">Administrator</option>
+                        <option value="2">Customer</option>
+                    </select>
+                </div>
+                <button type="button" onclick="edituser()" class="btn btn-primary btn-block button-margin">EDIT USER</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

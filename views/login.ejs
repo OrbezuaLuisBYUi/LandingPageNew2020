@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <!--This is the CDN to connect with BootstrapCDN CSS-->
+    <!-- JS AND JQUERY -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    <meta charset="UTF-8">
+    <!-- CDN FOR ICONS CART -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- CDN MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <title>Welcome to Luis' Post Office</title>
+</head>
+<body class="margin-xs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+    
+                        <!-- form card login -->
+                        <div class="card rounded shadow shadow-sm">
+                            <div class="card-header">
+                                <h3 class="mb-0">Login</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" role="form" method="POST" action="/Login">
+                                    <div class="form-group">
+                                        <label for="uname1">Username</label>
+                                        <input type="text" class="form-control form-control-lg rounded-0" name="username" id="username" required="">
+                                        <div class="invalid-feedback">Oops, you missed this one.</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control form-control-lg rounded-0" name="password" id="password" required="" autocomplete="new-password">
+                                        <div class="invalid-feedback">Enter your password too!</div>
+                                    </div>
+                                    <div>
+                                        <label class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input">
+                                          <span class="custom-control-indicator"></span>
+                                          <span class="custom-control-description small text-dark cursorpointer underline"><a data-toggle="modal" data-target="#modalcreateaccount">Don't have an account? Sign up here</a></span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                                </form>
+                            </div>
+                            <!--/card-block-->
+                        </div>
+                        <!-- /form card login -->
+    
+                    </div>
+
+                </div>
+                <!--/row-->
+    
+            </div>
+            <!--/col-->
+        </div>
+        <!--/row-->
+    </div>
+    <!--/container-->
+
+    <!-- Modal to new user -->
+    <div class="modal fade" id="modalcreateaccount" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">NEW USER</h4>
+                    <button type="button" class="close" data-dismiss="modal">Go to Users</button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="/CreateUser"></form>
+                        <div id="user_name">
+                            *User name:<br>
+                            <input name="newusername" id="newusername" type="text" class="form-control" placeholder="User name">
+                        </div>
+                        <div id="password">
+                            *Password:<br>
+                            <input name="password" id="newpassword" type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div id="name">
+                            *Name:<br>
+                            <input name="name" id="newname" type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div id="lastname">
+                            Last Name:<br>
+                            <input name="lastname" id="newlastname" type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                        <div id="phone">
+                            Phone:<br>
+                            <input name="phone" id="newphone" type="number" class="form-control" placeholder="Phone">
+                        </div>
+                        <div id="email">
+                            *Email:<br>
+                            <input name="email" id="newemail" type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <button type="button" id="newuser" class="btn btn-info form-control">NEW USER</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                <div id="resultnewuser"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const btnCreateUser = document.querySelector('#newuser');
+
+        btnCreateUser.addEventListener('click', () => {
+            //Validate data
+            var newusername = document.querySelector('#newusername').value;
+            var newpassword = document.querySelector('#newpassword').value;
+            var newname = document.querySelector('#newname').value;
+            var newlastname = document.querySelector('#newlastname').value;
+            var newphone = document.querySelector('#newphone').value;
+            var newemail = document.querySelector('#newemail').value;
+            
+            //AJAX
+            if(newusername.trim() == "" || newpassword.trim() == "" || newname.trim() == "" || newemail.trim() == "")
+            {
+                alert("Enter your required information");
+                return false;
+            }
+            else
+            {
+                fetch('/createUser', { 
+                    method: 'POST', 
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({ newusername:newusername,newpassword:newpassword,newname:newname,newlastname:newlastname,newphone:newphone,newemail:newemail })
+                })
+                .then(res => res.text())
+                .then(data => {
+                    alert(data);
+                });
+            }
+        })
+
+        
+    </script>
+</body>
+</html>

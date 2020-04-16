@@ -1,0 +1,237 @@
+
+<div class="container-fluid">
+    <!--documents-->
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9 content">
+            <div class="panel panel-default">
+            <div class="panel-body">
+                
+                <div class="content-row">
+                    <div class="left75">
+                        <h2 class="content-row-title">/Subscribers</h2>
+                    </div>
+                    <div class="left25">
+
+                    </div>
+                    <br><br><br><br>
+                    <div class="row">
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Phone</th>
+                                <th>Owner template</th>
+                                <th>Template</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="informationsubscribers">
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        
+                    </div>
+                </div>
+                
+            </div><!-- panel body -->
+            </div>
+        </div><!-- content -->
+    </div>
+</div>
+
+
+<!-- Modal to new Landing Page -->
+<div class="modal fade" id="modalcreatelandingpage" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">NEW LANDING PAGE</h4>
+                <button type="button" class="close" data-dismiss="modal">Go to Landing page</button>
+            </div>
+            <div class="modal-body">
+                <div id="tittle">
+                    *Tittle:<br>
+                    <input name="newtittle" id="newtittle" type="text" class="form-control" placeholder="Tittle">
+                </div>
+                <div id="subtittle">
+                    *Subtittle:<br>
+                    <input name="newsubtittle" id="newsubtittle" type="text" class="form-control" placeholder="Subtittle">
+                </div>
+                <div id="image">
+                    Image:<br>
+                    <input name="newimage" id="newimage" type="file" class="form-control" placeholder="Image">
+                </div>
+                <div id="video">
+                    Video:<br>
+                    <input name="newvideo" id="newvideo" type="text" class="form-control" placeholder="Video">
+                </div>
+                <div id="phone">
+                    Text:<br>
+                    <input name="newtext" id="newtext" type="text" class="form-control" placeholder="Text">
+                </div>
+                <div id="swname">
+                    <div class="left-tittle">*Sw name:</div>
+                    <div class="left-input"><input name="newswname" id="newswname" type="checkbox" class="form-control" checked></div>
+                </div>
+                <div id="swemail">
+                    <div class="left-tittle">*Sw email:</div>
+                    <div class="left-input"><input name="newswemail" id="newswemail" type="checkbox" class="form-control" checked></div>
+                </div>
+                <div id="swtext">
+                    <div class="left-tittle">Sw text:</div>
+                    <div class="left-input"><input name="newswtext" id="newswtext" type="checkbox" class="form-control"></div>
+                </div>
+                <div id="swphone">
+                    <div class="left-tittle">Sw phone:</div>
+                    <div class="left-input"><input name="newswphone" id="newswphone" type="checkbox" class="form-control"></div>
+                </div>
+                <button type="button" id="newlandingpage" class="btn btn-primary btn-block button-margin">NEW LANDING PAGE</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal Edit Subscriber -->
+<div class="modal fade" id="modaleditsubscriber" role="dialog">
+    <div class="modal-dialog">
+        <input type="hidden" id="editkeysubscriber" value="" >
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">EDIT SUBSCRIBER</h4>
+                <button type="button" class="close" data-dismiss="modal">Go to Subscribers</button>
+            </div>
+            <div class="modal-body">
+                <div id="Name">
+                    *Name:<br>
+                    <input name="editname" id="editname" type="text" class="form-control" placeholder="Name">
+                </div>
+                <div id="email">
+                    *Email:<br>
+                    <input name="editemail" id="editemail" type="text" class="form-control" placeholder="Email">
+                </div>
+                <div id="Message">
+                    Message:<br>
+                    <input name="editmessage" id="editmessage" type="text" class="form-control" placeholder="Message">
+                </div>
+                <div id="phone">
+                    Phone:<br>
+                    <input name="editphone" id="editphone" type="text" class="form-control" placeholder="Phone">
+                </div>
+                <button type="button" id="btneditsubscriber" class="btn btn-primary btn-block button-margin">EDIT SUBSCRIBER</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    load_suscribers();
+
+    //EDIT LANDINGPAGE
+    const btneditsubscriber = document.querySelector('#btneditsubscriber');
+
+    btneditsubscriber.addEventListener('click', () => {
+        //Validate data
+        
+        var editkeycus = document.querySelector('#editkeysubscriber').value;
+        var editname = document.querySelector('#editname').value;
+        var editemail = document.querySelector('#editemail').value;
+        var editmessage = document.querySelector('#editmessage').value;
+        var editphone = document.querySelector('#editphone').value;
+
+        //AJAX
+        if(editname.trim() == "" || editemail.trim() == "")
+        {
+            alert("Plase enter your Name and Email");
+            return false;
+        }
+        else
+        {
+            fetch('/UpdateSubscriber', { 
+                method: 'POST', 
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ editkeycus:editkeycus,editname:editname,editemail:editemail,editmessage:editmessage,editphone:editphone })
+            })
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+                load_suscribers();
+            });
+        }
+    })
+    //END EDIT LANDINGPAGE
+
+    function load_suscribers()
+    {
+        fetch('/showinfosubscribers', {method: 'GET'})
+        .then(res => res.json())
+        .then(data => {
+            const subscribers = $('#informationsubscribers');
+            var j = 0;
+            subscribers.empty();
+            for(var i = 0; i <= data.length; i++)
+            {
+                j++;
+                subscribers.append("<tr id='getinfo"+data[i].keycus+"'><td>"+j+"</td><td>"+data[i].yourname+"</td><td>"+data[i].email+"</td><td>"+data[i].yourtext+"</td><td>"+data[i].phone+"</td><td>"+data[i].nameuser+"</td><td>"+data[i].keylan+"</td><td><a class='glyphicon glyphicon-edit cursorpointer' data-toggle='modal' data-target='#modaleditsubscriber' title='Edit' onclick=editsubscriber('"+data[i].keycus+"')></a></td><td><a class='glyphicon glyphicon-trash cursorpointer' onclick=deletesubscriber('"+data[i].keycus+"') title='Delete'></a></td></tr>");
+            }
+        });
+    }
+
+    function editsubscriber(keycus)
+    {
+        var name = $('#getinfo'+keycus).find("td:eq(1)").text();
+        var email = $('#getinfo'+keycus).find("td:eq(2)").text();
+        var message = $('#getinfo'+keycus).find("td:eq(3)").text();
+        var phone = $('#getinfo'+keycus).find("td:eq(4)").text();
+        
+        $('#editkeysubscriber').val(keycus);
+        $('#editname').val(name);
+        $('#editemail').val(email);
+        $('#editmessage').val(message);
+        $('#editphone').val(phone);
+    }
+
+    function deletesubscriber(keycus)
+    {
+        if(confirm("Are you sure you want to delete"))
+        {
+            fetch('/DeleteSubscriber', { 
+                method: 'DELETE', 
+                headers: { 'content-Type': 'application/json' },
+                body: JSON.stringify({ keycus:keycus })
+            })
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+                load_suscribers();
+            });
+        }
+        else
+        {
+            alert("Operation was cancell");
+        }
+    }
+</script>

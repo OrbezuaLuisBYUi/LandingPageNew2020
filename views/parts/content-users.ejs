@@ -1,0 +1,295 @@
+
+<div class="container-fluid">
+    <!--documents-->
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9 content">
+            <div class="panel panel-default">
+            <div class="panel-body">
+                
+                <div class="content-row">
+                    <div class="left75">
+                        <h2 class="content-row-title">/Users</h2>
+                    </div>
+                    <div class="left25">
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalcreateuser">New User</button>
+                    </div>
+                    <br><br><br><br>
+                    <div class="row">
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>LastName</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Profile</th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="informationusers">
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        
+                    </div>
+                </div>
+                
+            </div><!-- panel body -->
+            </div>
+        </div><!-- content -->
+    </div>
+</div>
+
+<!-- Modal to new User -->
+<div class="modal fade" id="modalcreateuser" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">NEW USER</h4>
+                <button type="button" class="close" data-dismiss="modal">Go to Users</button>
+            </div>
+            <div class="modal-body">
+                <div id="username">
+                    *Username:<br>
+                    <input name="newusername" id="newusername" type="text" class="form-control" placeholder="Username">
+                </div>
+                <div id="password">
+                    *Password:<br>
+                    <input name="newpassword" id="newpassword" type="password" class="form-control" placeholder="Password">
+                </div>
+                <div id="name">
+                    *Name:<br>
+                    <input name="newname" id="newname" type="text" class="form-control" placeholder="Name">
+                </div>
+                <div id="video">
+                    LastName:<br>
+                    <input name="newlastname" id="newlastname" type="text" class="form-control" placeholder="LastName">
+                </div>
+                <div id="phone">
+                    Phone:<br>
+                    <input name="newphone" id="newphone" type="text" class="form-control" placeholder="Phone">
+                </div>
+                <div id="email">
+                    *Email:<br>
+                    <input name="newemail" id="newemail" type="text" class="form-control" placeholder="Email">
+                </div>
+                <div id="profile">
+                    *Profile:<br>
+                    <select class="form-control" name="newprofile" id="newprofile">
+                        <option value="">-Select Profile-</option>
+                        <option value="1">Administrator</option>
+                        <option value="2">Customer</option>
+                    </select>
+                </div>
+                <button type="button" id="newuser" class="btn btn-primary btn-block button-margin">NEW USER</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal to edit User -->
+<div class="modal fade" id="modaledituser" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <input type="hidden" id="editkeyuser" value="" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">EDIT USER</h4>
+                <button type="button" class="close" data-dismiss="modal">Go to Users</button>
+            </div>
+            <div class="modal-body">
+                <div id="username">
+                    *Username:<br>
+                    <input name="editusername" id="editusername" type="text" class="form-control" placeholder="Username">
+                </div>
+                <div id="password">
+                    *Password:<br>
+                    <input name="editpassword" id="editpassword" type="password" class="form-control" placeholder="Password">
+                </div>
+                <div id="name">
+                    *Name:<br>
+                    <input name="editname" id="editname" type="text" class="form-control" placeholder="Name">
+                </div>
+                <div id="video">
+                    LastName:<br>
+                    <input name="editlastname" id="editlastname" type="text" class="form-control" placeholder="LastName">
+                </div>
+                <div id="phone">
+                    Phone:<br>
+                    <input name="editphone" id="editphone" type="text" class="form-control" placeholder="Phone">
+                </div>
+                <div id="email">
+                    *Email:<br>
+                    <input name="editemail" id="editemail" type="text" class="form-control" placeholder="Email">
+                </div>
+                <div id="profile">
+                    *Profile:<br>
+                    <select class="form-control" name="editprofile" id="editprofile">
+                        <option value="">-Select Profile-</option>
+                        <option value="1">Administrator</option>
+                        <option value="2">Customer</option>
+                    </select>
+                </div>
+                <button type="button" id="edituser" class="btn btn-primary btn-block button-margin">EDIT USER</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    load_users();
+
+    const btnCreateUser = document.querySelector('#newuser');
+
+    btnCreateUser.addEventListener('click', () => {
+        //Validate data
+        var newusername = document.querySelector('#newusername').value;
+        var newpassword = document.querySelector('#newpassword').value;
+        var newname = document.querySelector('#newname').value;
+        var newlastname = document.querySelector('#newlastname').value;
+        var newphone = document.querySelector('#newphone').value;
+        var newemail = document.querySelector('#newemail').value;
+        var newprofile = document.querySelector('#newprofile').value;
+        
+        //AJAX
+        if(newusername.trim() == "" || newpassword.trim() == "" || newname.trim() == "" || newemail.trim() == "" || newprofile.trim() == "")
+        {
+            alert("Enter your required information");
+            return false;
+        }
+        else
+        {
+            fetch('/createUser', { 
+                method: 'POST', 
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ newusername:newusername,newpassword:newpassword,newname:newname,newlastname:newlastname,newphone:newphone,newemail:newemail,newprofile:newprofile })
+            })
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+                load_users();
+            });
+        }
+    })
+
+    //EDIT USER
+    const btnedituser = document.querySelector('#edituser');
+
+    btnedituser.addEventListener('click', () => {
+        //Validate data
+        
+        var editkeyuser = document.querySelector('#editkeyuser').value;
+        var editusername = document.querySelector('#editusername').value;
+        var editpassword = document.querySelector('#editpassword').value;
+        var editname = document.querySelector('#editname').value;
+        var editlastname = document.querySelector('#editlastname').value;
+        var editphone = document.querySelector('#editphone').value;
+        var editemail = document.querySelector('#editemail').value;
+        var editprofile = document.querySelector('#editprofile').value;
+
+        //AJAX
+        if(editusername.trim() == "" || editname.trim() == "" || editemail.trim() == "" || editprofile.trim() == "")
+        {
+            alert("Enter your required information");
+            return false;
+        }
+        else
+        {
+            fetch('/UpdateUser', { 
+                method: 'POST', 
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ editkeyuser:editkeyuser,editusername:editusername,editpassword:editpassword,editname:editname,editlastname:editlastname,editphone:editphone,editemail:editemail,editprofile:editprofile })
+            })
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+                load_users();
+            });
+        }
+    })
+    //END EDIT LANDINGPAGE
+
+    function load_users()
+    {
+        fetch('/Showinfousers', {method: 'GET'})
+        .then(res => res.json())
+        .then(data => {
+            const users = $('#informationusers');
+            var j = 0;
+            users.empty();
+
+            for(var i = 0; i <= data.length; i++)
+            {
+                j++;
+                var profile = "";
+                if(data[i].profile == 1){ profile = "Administrator"; }else{ profile = "Customer"; }
+                users.append("<tr id='getinfo"+data[i].keyuse+"'><td>"+j+"</td><td>"+data[i].username+"</td><td>"+data[i].myname+"</td><td>"+data[i].lastname+"</td><td>"+data[i].phone+"</td><td>"+data[i].email+"</td><td>"+profile+"</td><td><a class='glyphicon glyphicon-edit cursorpointer' data-toggle='modal' data-target='#modaledituser' title='Edit' onclick=edituser('"+data[i].keyuse+"')></a></td><td><a class='glyphicon glyphicon-trash cursorpointer' onclick=deleteuser('"+data[i].keyuse+"') title='Delete'></a></td></tr>");
+            }
+        });
+    }
+
+    function edituser(keyuse)
+    {
+        var username = $('#getinfo'+keyuse).find("td:eq(1)").text();
+        var name = $('#getinfo'+keyuse).find("td:eq(2)").text();
+        var lastname = $('#getinfo'+keyuse).find("td:eq(3)").text();
+        var phone = $('#getinfo'+keyuse).find("td:eq(4)").text();
+        var email = $('#getinfo'+keyuse).find("td:eq(5)").text();
+        var profile = $('#getinfo'+keyuse).find("td:eq(6)").text();
+        
+        if(profile == "Administrator"){ profile = 1; }else{ profile = 2; }
+
+        $('#editusername').val(username);
+        $('#editname').val(name);
+        $('#editlastname').val(lastname);
+        $('#editphone').val(phone);
+        $('#editemail').val(email);
+        $('#editprofile').val(profile);
+        $('#editkeyuser').val(keyuse);
+    }
+
+    function deleteuser(keyuse)
+    {
+        if(confirm("Are you sure you want to delete"))
+        {
+            fetch('/DeleteUser', { 
+                method: 'DELETE', 
+                headers: { 'content-Type': 'application/json' },
+                body: JSON.stringify({ keyuse:keyuse })
+            })
+            .then(res => res.text())
+            .then(data => {
+                alert(data);
+                load_users();
+            });
+        }
+        else
+        {
+            alert("Operation was cancell");
+        }
+    }
+</script>
